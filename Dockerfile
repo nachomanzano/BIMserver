@@ -26,8 +26,8 @@ RUN dpkg-reconfigure -f noninteractive tzdata
 RUN mkdir /opt/tomcat
 RUN groupadd tomcat
 RUN useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
-RUN http://apache.mirror.anlx.net/tomcat/tomcat-8/v8.5.61/bin/apache-tomcat-8.5.61-deployer.tar.gz \
-	-O /tmp/apache-tomcat-8.5.60.tar.gz
+#RUN http://apache.mirror.anlx.net/tomcat/tomcat-8/v8.5.61/bin/apache-tomcat-8.5.61-deployer.tar.gz -O /tmp/apache-tomcat-8.5.60.tar.gz
+ADD ./apache-tomcat-8.5.61.tar.gz/opt/run.sh /tmp/apache-tomcat-8.5.60.tar.gz
 RUN tar xvf /tmp/apache-tomcat-8.5.60.tar.gz -C /opt/tomcat --strip-components=1
 RUN rm -f /tmp/apache-tomcat-8.5.60.tar.gz
 
